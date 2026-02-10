@@ -4,9 +4,9 @@ import loadContact from "./contact.js";
 
 
 function nav() {
-    const homeButton = document.querySelectorAll(".button-nav")[0];
-    const menuButton = document.querySelectorAll(".button-nav")[1];
-    const contactButton = document.querySelectorAll(".button-nav")[2];
+    const homeButton = document.querySelector(".button-nav.home");
+    const menuButton = document.querySelector(".button-nav.menu");
+    const contactButton = document.querySelector(".button-nav.contact");
 
     homeButton.addEventListener("click", loadHome);
     menuButton.addEventListener("click", loadMenu);
@@ -15,11 +15,8 @@ function nav() {
 
 
 function initializeWebsite() {
-    const content = document.getElementById("content");
-    loadHome();
-
-    nav();
-
+    loadHome(); 
+    nav();      
 };
 
 export default initializeWebsite;

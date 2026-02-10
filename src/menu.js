@@ -11,7 +11,7 @@ function createMenu() {
 
     menu.appendChild(
         createMenuItem(
-            "Capuccino",
+            "Cappuccino",
             "Expresso and steamed milk topped with generous layer of milk foam."
         )
     );
@@ -51,6 +51,8 @@ function createMenu() {
             "Ghirardelli dark or white chocolate with steamed milk; get it `all the way` with marshmallows and whipped cream!"
         )
     );
+
+    return menu;
 };
 
 
@@ -77,9 +79,29 @@ function createMenuItem(name, description) {
 
 
 function loadMenu() {
-    const main = document.getElementById("main");
+    const main = document.getElementById("content");
     main.textContent = "";
-    main.appendChild(createMenu());
+
+    const backgroundDiv = document.createElement("div");
+    backgroundDiv.style.position = "absolute";
+    backgroundDiv.style.top = "0";
+    backgroundDiv.style.left = "0";
+    backgroundDiv.style.width = "100%";
+    backgroundDiv.style.height = "100%";
+    backgroundDiv.style.backgroundImage = "url(imgs/restaurant.jpg)";
+    backgroundDiv.style.backgroundSize = "cover";
+    backgroundDiv.style.backgroundPosition = "center";
+    backgroundDiv.style.backgroundRepeat = "no-repeat";
+    backgroundDiv.style.zIndex = "0";
+
+    main.style.position = "relative";
+
+    const menu = createMenu();
+    menu.style.position = "relative";
+    menu.style.zIndex = "1";
+
+    main.appendChild(backgroundDiv);
+    main.appendChild(menu);
 };
 
 export default loadMenu;
